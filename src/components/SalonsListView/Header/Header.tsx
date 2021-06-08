@@ -46,7 +46,7 @@ const Header = ({ heading }: HeaderProps): ReactElement => {
       </Button>
       <Heading>{heading}</Heading>
       <Button>
-        <img src={filter} alt="" />
+        <img src={filter} alt="filter icon" />
       </Button>
     </HeaderWrapper>
   );
