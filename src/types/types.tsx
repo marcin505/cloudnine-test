@@ -2,7 +2,7 @@ export interface SalonType {
   id: number;
   companyName: string;
   price: number;
-  rating: number;
+  score: number;
   address: string;
   distance: number;
   openTime: string;

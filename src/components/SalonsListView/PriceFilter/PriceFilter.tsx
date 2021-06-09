@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import Select from 'react-select';
-import { PRICE_OPTIONS } from '../../../constants';
+import { PRICE_OPTIONS } from 'constants/constants';
 
 interface PriceFilterProps {
   priceSelectionHandler: (val: { value: string; label: string }) => void;

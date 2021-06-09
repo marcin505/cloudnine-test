@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from 'components/SalonsListView/Header/Header';
 import PriceFilter from 'components/SalonsListView/PriceFilter/PriceFilter';
 import SalonsList from 'components/SalonsListView/SalonsList/SalonsList';
+import { SALONS_LIST } from 'constants/constants';
 
 const SalonsListViewWrapper = styled.section`
   background: #fff;
@@ -18,7 +19,7 @@ const SalonsListView = (): ReactElement => {
     <SalonsListViewWrapper>
       <Header heading="Hår" />
       <PriceFilter {...{ priceSelectionHandler }} />
-      <SalonsList />
+      <SalonsList salons={SALONS_LIST} />
     </SalonsListViewWrapper>
   );
 };
