@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import SalonsListView from 'components/SalonsListView';
+import SalonView from 'components/SalonView';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SalonsListView />
+    <HashRouter>
+      <Switch>
+        <Route exact path="/">
+          <SalonsListView />
+        </Route>
+        <Route path="/salon-details/:salonId">
+          <SalonView />
+        </Route>
+      </Switch>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );

@@ -19,3 +19,7 @@ export enum SelectOpitionValuesEnum {
   RANGE_2 = '250-500',
   RANGE_3 = '500-750',
 }
+
+export interface ParamsType {
+  salonId: string;
+}
