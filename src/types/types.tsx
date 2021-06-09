@@ -2,10 +2,11 @@ export interface SalonType {
   id: number;
   companyName: string;
   price: number;
-  score: number;
+  reviews: number;
   address: string;
   distance: number;
   openTime: string;
+  stars: number;
 }
 
 export interface SelectOptionType {

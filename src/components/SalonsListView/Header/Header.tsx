@@ -9,11 +9,11 @@ interface HeaderProps {
 
 const HeaderWrapper = styled.section`
   align-items: center;
-  display: flex;
-  height: 64px;
-  justify-content: space-between;
-  padding: 0 15px;
   border-bottom: 1px solid #b69f58;
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  padding: 25px 15px 8px;
 `;
 
 const Heading = styled.h1`

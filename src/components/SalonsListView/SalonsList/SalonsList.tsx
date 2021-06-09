@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import { SalonType } from 'types';
 import SalonsListItem from './SalonsListItem';
 
@@ -8,20 +8,22 @@ interface SalonsListProps {
 }
 
 const StyledUl = styled.ul`
-  height: 564px;
+  height: 546px;
   margin: 0;
-  overflow-y: overlay;
+  overflow-y: auto;
   padding: 0 15px;
 `;
 
 const SalonsList = ({ salons }: SalonsListProps): ReactElement => {
-  return salons.length ?
+  return salons.length ? (
     <StyledUl>
       {salons.map((salon: SalonType) => (
         <SalonsListItem {...{ salon }} key={salon.id} />
       ))}
-    </StyledUl> :
+    </StyledUl>
+  ) : (
     <span>No results found</span>
+  );
 };
 
 export default SalonsList;
