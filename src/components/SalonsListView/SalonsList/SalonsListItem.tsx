@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import arrowRight from 'assets/arrow-right.svg';
 import { SalonType } from 'types';
@@ -19,6 +20,7 @@ const Col1 = styled.span`
   font-family: 'HelveticaNeue', sans-serif;
   font-size: 15px;
   width: 52px;
+  line-height: 20px;
 `;
 
 const Col2 = styled.div`
@@ -96,15 +98,24 @@ const Distance = styled.span`
   color: #656565;
 `;
 
-const Col4 = styled.a`
-  display: flex;
-  width: 30px;
+const Col4 = styled(Link)`
   align-items: center;
+  display: flex;
   justify-content: flex-end;
+  width: 34px;
 `;
 
 const SalonsListItem = ({
-  salon: { openTime, companyName, address, reviews, stars, price, distance },
+  salon: {
+    openTime,
+    companyName,
+    address,
+    reviews,
+    stars,
+    price,
+    distance,
+    id,
+  },
 }: SalonsListItemProps): ReactElement => {
   return (
     <StyledListItem>
@@ -120,8 +131,8 @@ const SalonsListItem = ({
         <Price>{price} kr</Price>
         <Distance>{distance} min</Distance>
       </Col3>
-      <Col4>
-        <img src={arrowRight} />
+      <Col4 to={`/salon-details/${id}`}>
+        <img src={arrowRight} alt="salon details link" />
       </Col4>
     </StyledListItem>
   );

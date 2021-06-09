@@ -20,11 +20,12 @@ const Star = ({ src }: StarProps) => <StyledImg {...{ src }} />;
 
 const Stars = ({ stars }: StarsProps): ReactElement => (
   <>
-    <Star src={stars >= 1 ? starFilled : starStroked} />
-    <Star src={stars >= 2 ? starFilled : starStroked} />
-    <Star src={stars >= 3 ? starFilled : starStroked} />
-    <Star src={stars >= 4 ? starFilled : starStroked} />
-    <Star src={stars === 5 ? starFilled : starStroked} />
+    {[1, 2, 3, 4, 5].map((starNo) => (
+      <Star
+        src={stars >= starNo ? starFilled : starStroked}
+        key={starNo}
+      />
+    ))}
   </>
 );
 

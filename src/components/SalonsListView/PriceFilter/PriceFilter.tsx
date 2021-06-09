@@ -1,10 +1,16 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import Select from 'react-select';
-import { PRICE_OPTIONS, DEFAULT_PRICE_OPTION } from 'constants/constants';
+import {
+  PRICE_OPTIONS,
+  DEFAULT_PRICE_OPTION,
+} from 'constants/constants';
 
 interface PriceFilterProps {
-  priceSelectionHandler: (val: { value: string; label: string }) => void;
+  priceSelectionHandler: (val: {
+    value: string;
+    label: string;
+  }) => void;
 }
 
 const StyledSelect = styled(Select)`
@@ -35,7 +41,6 @@ const styles = {
   option: (base: any, state: any) => ({
     ...base,
     ...textStyle,
-    borderBottomColor: state.isSelected ? '#161309' : 'transparent',
     backgroundColor: state.isSelected ? '#fae39f' : 'transparent',
     cursor: 'pointer',
     '&:hover': {
@@ -57,7 +62,9 @@ const styles = {
   }),
 };
 
-const PriceFilter = ({ priceSelectionHandler }: PriceFilterProps): ReactElement => {
+const PriceFilter = ({
+  priceSelectionHandler,
+}: PriceFilterProps): ReactElement => {
   return (
     <StyledSelect
       options={PRICE_OPTIONS}
@@ -66,6 +73,11 @@ const PriceFilter = ({ priceSelectionHandler }: PriceFilterProps): ReactElement 
       components={{
         IndicatorSeparator: () => null,
       }}
+      theme={(theme: any) => ({
+        ...theme,
+        borderRadius: 0,
+      })}
+      isSearchable={false}
       styles={styles}
     />
   );
