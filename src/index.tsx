@@ -5,19 +5,22 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import SalonsListView from 'components/SalonsListView';
 import SalonView from 'components/SalonView';
 import reportWebVitals from './reportWebVitals';
+import StoreProvider from 'store/StoreProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
-      <Switch>
-        <Route exact path="/">
-          <SalonsListView />
-        </Route>
-        <Route path="/salon-details/:salonId">
-          <SalonView />
-        </Route>
-      </Switch>
-    </HashRouter>
+    <StoreProvider>
+      <HashRouter>
+        <Switch>
+          <Route exact path="/">
+            <SalonsListView />
+          </Route>
+          <Route path="/salon-details/:salonId">
+            <SalonView />
+          </Route>
+        </Switch>
+      </HashRouter>
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

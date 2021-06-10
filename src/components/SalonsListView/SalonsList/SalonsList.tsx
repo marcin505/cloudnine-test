@@ -4,7 +4,7 @@ import { SalonType } from 'types';
 import SalonsListItem from './SalonsListItem';
 
 interface SalonsListProps {
-  salons: SalonType[];
+  salonsList: SalonType[];
 }
 
 const StyledUl = styled.ul`
@@ -14,10 +14,12 @@ const StyledUl = styled.ul`
   padding: 0 15px;
 `;
 
-const SalonsList = ({ salons }: SalonsListProps): ReactElement => {
-  return salons.length ? (
+const SalonsList = ({
+  salonsList,
+}: SalonsListProps): ReactElement => {
+  return salonsList.length ? (
     <StyledUl>
-      {salons.map((salon: SalonType) => (
+      {salonsList.map((salon: SalonType) => (
         <SalonsListItem {...{ salon }} key={salon.id} />
       ))}
     </StyledUl>

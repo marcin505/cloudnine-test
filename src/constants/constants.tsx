@@ -1,12 +1,26 @@
-import { SalonType, SelectOptionType, SelectOpitionValuesEnum } from 'types';
+import {
+  SalonType,
+  SelectOptionType,
+  PriceRangeValuesEnum,
+} from 'types';
 
 export const PRICE_OPTIONS: SelectOptionType[] = [
-  { value: SelectOpitionValuesEnum.RANGE_1, label: 'Pris 0 - 250 kr' },
-  { value: SelectOpitionValuesEnum.RANGE_2, label: 'Pris 250 - 500 kr' },
-  { value: SelectOpitionValuesEnum.RANGE_3, label: 'Pris 500 - 750 kr' },
+  {
+    value: PriceRangeValuesEnum.RANGE_1,
+    label: 'Pris 0 - 250 kr',
+  },
+  {
+    value: PriceRangeValuesEnum.RANGE_2,
+    label: 'Pris 250 - 500 kr',
+  },
+  {
+    value: PriceRangeValuesEnum.RANGE_3,
+    label: 'Pris 500 - 750 kr',
+  },
 ];
 
-export const DEFAULT_PRICE_OPTION: SelectOptionType = PRICE_OPTIONS[1];
+export const DEFAULT_PRICE_OPTION: SelectOptionType =
+  PRICE_OPTIONS[1];
 
 export const SALONS_LIST: SalonType[] = [
   {

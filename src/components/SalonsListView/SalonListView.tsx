@@ -1,9 +1,9 @@
-import React, { ReactElement, useCallback } from 'react';
+import React, { ReactElement, useCallback, useContext } from 'react';
 import styled from 'styled-components';
 import Header from 'components/SalonsListView/Header/Header';
 import PriceFilter from 'components/SalonsListView/PriceFilter/PriceFilter';
 import SalonsList from 'components/SalonsListView/SalonsList/SalonsList';
-import { SALONS_LIST } from 'constants/constants';
+import { StoreContext } from 'store/StoreProvider';
 
 const SalonsListViewWrapper = styled.section`
   background: #fff;
@@ -15,11 +15,12 @@ const SalonsListView = (): ReactElement => {
     console.log(val);
   }, []);
 
+  const { salonsList } = useContext(StoreContext);
   return (
     <SalonsListViewWrapper>
       <Header heading="Hår" />
       <PriceFilter {...{ priceSelectionHandler }} />
-      <SalonsList salons={SALONS_LIST} />
+      <SalonsList {...{ salonsList }} />
     </SalonsListViewWrapper>
   );
 };
