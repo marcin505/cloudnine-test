@@ -23,3 +23,9 @@ export enum SelectOpitionValuesEnum {
 export interface ParamsType {
   salonId: string;
 }
+
+export enum StarSizeEnum {
+  SMALL = 'S',
+  MEDIUM = 'M',
+  LARGE = 'L',
+}

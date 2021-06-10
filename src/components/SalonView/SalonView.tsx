@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
-// import { useParams } from 'react-router-dom';
-// import { ParamsType } from 'types';
+import { useParams } from 'react-router-dom';
+import { ParamsType } from 'types';
 import SalonHeader from './SalonHeader/SalonHeader';
 
 const SalonViewWrapper = styled.section`
@@ -10,12 +10,18 @@ const SalonViewWrapper = styled.section`
 `;
 
 const SalonView = (): ReactElement => {
-  // const { salonId }: ParamsType = useParams();
+  const { salonId }: ParamsType = useParams();
+  console.log(salonId);
 
   return (
     <SalonViewWrapper>
-      <SalonHeader />
-    </SalonViewWrapper>);
+      <SalonHeader
+        companyName="Some Company"
+        stars={3}
+        reviews={42}
+      />
+    </SalonViewWrapper>
+  );
 };
 
 export default SalonView;

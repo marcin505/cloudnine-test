@@ -40,7 +40,12 @@ const CompanyName = styled.span`
 
 const Score = styled.div`
   display: flex;
+  align-items: center;
   margin: 16px 0 12px;
+`;
+
+const Reviews = styled.span`
+  margin-left: 4px;
   font-family: 'HelveticaNeue', sans-serif;
   font-size: 11px;
   font-weight: 300;
@@ -49,10 +54,6 @@ const Score = styled.div`
   line-height: normal;
   letter-spacing: -0.07px;
   color: #656565;
-`;
-
-const Reviews = styled.span`
-  margin-left: 4px;
 `;
 
 const Address = styled.span`
@@ -123,7 +124,8 @@ const SalonsListItem = ({
       <Col2>
         <CompanyName>{companyName}</CompanyName>
         <Score>
-          <Stars {...{ stars }} /> <Reviews>({reviews})</Reviews>
+          <Stars {...{ stars, reviews }} />{' '}
+          <Reviews>({reviews})</Reviews>
         </Score>
         <Address>{address}</Address>
       </Col2>
