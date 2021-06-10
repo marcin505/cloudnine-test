@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import backIcon from 'assets/arrow-left.svg';
 import filter from 'assets/filter.svg';
+import Button from 'components/common/Button/Button';
 
 interface HeaderProps {
   heading: string;
@@ -14,6 +15,14 @@ const HeaderWrapper = styled.section`
   height: 30px;
   justify-content: space-between;
   padding: 25px 15px 8px;
+`;
+
+const BackButton = styled(Button)`
+  text-align: left;
+`;
+
+const FilterButton = styled(Button)`
+  text-align: right;
 `;
 
 const Heading = styled.h1`
@@ -29,25 +38,16 @@ const Heading = styled.h1`
   text-align: center;
 `;
 
-const Button = styled.button`
-  background: none;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  border: 0;
-`;
-
 const Header = ({ heading }: HeaderProps): ReactElement => {
   return (
     <HeaderWrapper>
-      <Button>
-        <img src={backIcon} alt="" />
-      </Button>
+      <BackButton>
+        <img src={backIcon} alt="back button" />
+      </BackButton>
       <Heading>{heading}</Heading>
-      <Button>
-        <img src={filter} alt="filter icon" />
-      </Button>
+      <FilterButton>
+        <img src={filter} alt="filter button" />
+      </FilterButton>
     </HeaderWrapper>
   );
 };
