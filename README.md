@@ -2,7 +2,7 @@
 
 This project was bootstrapped with Create React App.
 
-Demo: <some_url>
+Demo: https://marcin505.github.io/cloudnine-test
 
 ## Available Scripts
 
