@@ -6,6 +6,10 @@ import {
 
 export const PRICE_OPTIONS: SelectOptionType[] = [
   {
+    value: PriceRangeValuesEnum.ALL,
+    label: 'All Salons',
+  },
+  {
     value: PriceRangeValuesEnum.RANGE_1,
     label: 'Pris 0 - 250 kr',
   },
@@ -18,9 +22,6 @@ export const PRICE_OPTIONS: SelectOptionType[] = [
     label: 'Pris 500 - 750 kr',
   },
 ];
-
-export const DEFAULT_PRICE_OPTION: SelectOptionType =
-  PRICE_OPTIONS[1];
 
 export const SALONS_LIST: SalonType[] = [
   {
@@ -66,7 +67,7 @@ export const SALONS_LIST: SalonType[] = [
   {
     id: 4,
     companyName: 'Harley Davidson',
-    price: 320,
+    price: 115,
     reviews: 32,
     address: 'Rådmansgatan 46',
     distance: 30,
@@ -86,7 +87,7 @@ export const SALONS_LIST: SalonType[] = [
   {
     id: 6,
     companyName: 'Fred Durst',
-    price: 90,
+    price: 220,
     reviews: 38,
     address: 'Lundgatan 55',
     distance: 10,

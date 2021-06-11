@@ -1,19 +1,20 @@
-import { TabsHeadingsEnum, PriceRangeValuesEnum } from 'types';
+import {
+  PriceRangeValuesEnum,
+  AvailablePriceRangesType,
+  AvailableTabsType,
+} from 'types';
 
 const UPDATE_SELECTED_PRICE_RANGE = 'UPDATE_SELECTED_PRICE_RANGE';
 const UPDATE_SELECTED_TAB = 'UPDATE_SELECTED_TAB';
 
 interface UpdateSelectedTabActionType {
   type: typeof UPDATE_SELECTED_TAB;
-  selectedTab: TabsHeadingsEnum.TAB_1 | TabsHeadingsEnum.TAB_2;
+  selectedTab: AvailableTabsType;
 }
 
 interface UpdateSelectedPriceRangeActionType {
   type: typeof UPDATE_SELECTED_PRICE_RANGE;
-  selectedPriceRange:
-    | PriceRangeValuesEnum.RANGE_1
-    | PriceRangeValuesEnum.RANGE_2
-    | PriceRangeValuesEnum.RANGE_3;
+  selectedPriceRange: AvailablePriceRangesType;
 }
 
 const updatePriceRangeAction = ({
@@ -31,7 +32,7 @@ const updatePriceRangeAction = ({
 const updateSelectedTabAction = ({
   selectedTab,
 }: {
-  selectedTab: TabsHeadingsEnum.TAB_1 | TabsHeadingsEnum.TAB_2;
+  selectedTab: AvailableTabsType;
 }): UpdateSelectedTabActionType => ({
   type: UPDATE_SELECTED_TAB,
   selectedTab,

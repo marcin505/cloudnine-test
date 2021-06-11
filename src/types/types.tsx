@@ -10,7 +10,7 @@ export interface SalonType {
 }
 
 export interface SelectOptionType {
-  value: string;
+  value: AvailablePriceRangesType;
   label: string;
 }
 
@@ -18,12 +18,23 @@ export enum PriceRangeValuesEnum {
   RANGE_1 = '0-250',
   RANGE_2 = '250-500',
   RANGE_3 = '500-750',
+  ALL = 'all',
 }
 
 export enum TabsHeadingsEnum {
   TAB_1 = 'Info',
   TAB_2 = 'Schema',
 }
+
+export type AvailableTabsType =
+  | TabsHeadingsEnum.TAB_1
+  | TabsHeadingsEnum.TAB_2;
+
+export type AvailablePriceRangesType =
+  | PriceRangeValuesEnum.RANGE_1
+  | PriceRangeValuesEnum.RANGE_2
+  | PriceRangeValuesEnum.RANGE_3
+  | PriceRangeValuesEnum.ALL;
 
 export interface ParamsType {
   salonId: string;

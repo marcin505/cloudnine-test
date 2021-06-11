@@ -1,16 +1,16 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useMemo } from 'react';
 import styled from 'styled-components';
 import Select from 'react-select';
-import {
-  PRICE_OPTIONS,
-  DEFAULT_PRICE_OPTION,
-} from 'constants/constants';
+import { PRICE_OPTIONS } from 'constants/constants';
+import { AvailablePriceRangesType } from 'types';
+import { getSelectedPriceOption } from 'utils/utils';
 
 interface PriceFilterProps {
   priceSelectionHandler: (val: {
     value: string;
     label: string;
   }) => void;
+  selectedPriceRange: AvailablePriceRangesType;
 }
 
 const StyledSelect = styled(Select)`
@@ -43,6 +43,7 @@ const styles = {
     ...textStyle,
     backgroundColor: state.isSelected ? '#fae39f' : 'transparent',
     cursor: 'pointer',
+    padding: '12px 16px',
     '&:hover': {
       backgroundColor: '#fae39f',
     },
@@ -50,7 +51,7 @@ const styles = {
   singleValue: (base: any) => ({
     ...base,
     ...textStyle,
-    marginLeft: '6px',
+    marginLeft: '8px',
   }),
   menu: (base: any) => ({
     ...base,
@@ -64,12 +65,17 @@ const styles = {
 
 const PriceFilter = ({
   priceSelectionHandler,
+  selectedPriceRange,
 }: PriceFilterProps): ReactElement => {
+  const selectedPriceOption = useMemo(() => {
+    return getSelectedPriceOption({ priceRange: selectedPriceRange });
+  }, [selectedPriceRange]);
+
   return (
     <StyledSelect
       options={PRICE_OPTIONS}
       onChange={priceSelectionHandler}
-      defaultValue={DEFAULT_PRICE_OPTION}
+      value={selectedPriceOption}
       components={{
         IndicatorSeparator: () => null,
       }}

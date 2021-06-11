@@ -2,6 +2,7 @@ import {
   PriceRangeValuesEnum,
   SalonType,
   TabsHeadingsEnum,
+  AvailablePriceRangesType,
 } from 'types';
 import { SALONS_LIST } from 'constants/constants';
 import {
@@ -11,16 +12,13 @@ import {
 } from './actions';
 
 export interface StoreType {
-  selectedPriceRange:
-    | PriceRangeValuesEnum.RANGE_1
-    | PriceRangeValuesEnum.RANGE_2
-    | PriceRangeValuesEnum.RANGE_3;
+  selectedPriceRange: AvailablePriceRangesType;
   selectedTab: TabsHeadingsEnum.TAB_1 | TabsHeadingsEnum.TAB_2;
   salonsList: SalonType[];
 }
 
 export const initialState: StoreType = {
-  selectedPriceRange: PriceRangeValuesEnum.RANGE_2,
+  selectedPriceRange: PriceRangeValuesEnum.ALL,
   selectedTab: TabsHeadingsEnum.TAB_1,
   salonsList: SALONS_LIST,
 };
