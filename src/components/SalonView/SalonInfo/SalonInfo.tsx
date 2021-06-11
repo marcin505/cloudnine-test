@@ -44,7 +44,7 @@ const SalonInfoItem = styled.li`
 `;
 
 const Divider = styled.div`
-  height: 20px;
+  height: 80px;
   background-color: #f9f9f9;
 `;
 

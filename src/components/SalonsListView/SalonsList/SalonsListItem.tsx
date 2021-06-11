@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import arrowRight from 'assets/arrow-right.svg';
@@ -106,7 +106,7 @@ const Col4 = styled(Link)`
   width: 34px;
 `;
 
-const SalonsListItem = ({
+const SalonsListItem: React.FC<SalonsListItemProps> = ({
   salon: {
     openTime,
     companyName,
@@ -117,7 +117,7 @@ const SalonsListItem = ({
     distance,
     id,
   },
-}: SalonsListItemProps): ReactElement => {
+}) => {
   return (
     <StyledListItem>
       <Col1>{openTime}</Col1>

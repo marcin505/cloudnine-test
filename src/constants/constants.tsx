@@ -25,7 +25,7 @@ export const PRICE_OPTIONS: SelectOptionType[] = [
 
 export const SALONS_LIST: SalonType[] = [
   {
-    id: 0,
+    id: 'salon-1',
     companyName: 'Sax & Fön',
     price: 320,
     reviews: 32,
@@ -35,7 +35,7 @@ export const SALONS_LIST: SalonType[] = [
     stars: 3,
   },
   {
-    id: 1,
+    id: 'salon-2',
     companyName: 'Hårizont',
     price: 320,
     reviews: 32,
@@ -45,7 +45,7 @@ export const SALONS_LIST: SalonType[] = [
     stars: 5,
   },
   {
-    id: 2,
+    id: 'salon-3',
     companyName: 'Hårhuset',
     price: 320,
     reviews: 32,
@@ -55,7 +55,7 @@ export const SALONS_LIST: SalonType[] = [
     stars: 2,
   },
   {
-    id: 3,
+    id: 'salon-4',
     companyName: 'Hair & Nu',
     price: 320,
     reviews: 18,
@@ -65,7 +65,7 @@ export const SALONS_LIST: SalonType[] = [
     stars: 3,
   },
   {
-    id: 4,
+    id: 'salon-5',
     companyName: 'Harley Davidson',
     price: 115,
     reviews: 32,
@@ -75,7 +75,7 @@ export const SALONS_LIST: SalonType[] = [
     stars: 5,
   },
   {
-    id: 5,
+    id: 'salon-6',
     companyName: 'Combs & Scisors',
     price: 90,
     reviews: 29,
@@ -85,7 +85,7 @@ export const SALONS_LIST: SalonType[] = [
     stars: 4,
   },
   {
-    id: 6,
+    id: 'salon-7',
     companyName: 'Fred Durst',
     price: 220,
     reviews: 38,
@@ -95,7 +95,7 @@ export const SALONS_LIST: SalonType[] = [
     stars: 1,
   },
   {
-    id: 7,
+    id: 'salon-8',
     companyName: 'Bonnie & Clyde',
     price: 590,
     reviews: 43,

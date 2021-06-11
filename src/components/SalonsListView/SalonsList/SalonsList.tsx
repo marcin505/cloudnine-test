@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { SalonType } from 'types';
 import SalonsListItem from './SalonsListItem';
@@ -14,9 +14,9 @@ const StyledUl = styled.ul`
   padding: 0 15px;
 `;
 
-const SalonsList = ({
+const SalonsList: React.FC<SalonsListProps> = ({
   filteredSalons,
-}: SalonsListProps): ReactElement => {
+}) => {
   return filteredSalons.length ? (
     <StyledUl>
       {filteredSalons.map((salon: SalonType) => (

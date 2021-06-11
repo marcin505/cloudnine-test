@@ -1,5 +1,5 @@
 export interface SalonType {
-  id: number;
+  id: string;
   companyName: string;
   price: number;
   reviews: number;

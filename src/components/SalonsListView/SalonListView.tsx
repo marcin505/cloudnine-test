@@ -1,9 +1,4 @@
-import React, {
-  ReactElement,
-  useCallback,
-  useContext,
-  useMemo,
-} from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import styled from 'styled-components';
 import Header from 'components/SalonsListView/Header/Header';
 import PriceFilter from 'components/SalonsListView/PriceFilter/PriceFilter';
@@ -18,30 +13,33 @@ const SalonsListViewWrapper = styled.section`
   height: 667px;
 `;
 
-const SalonsListView = (): ReactElement => {
+const SalonsListView: React.FC = () => {
   const { salonsList, selectedPriceRange, dispatch } =
     useContext(StoreContext);
   const priceSelectionHandler = useCallback(
-    (selectedValue) => {
-      // console.log(28, selectedValue);
+    (selectedOption) => {
       dispatch(
         updatePriceRangeAction({
-          selectedPriceRange: selectedValue.value,
+          selectedPriceRange: selectedOption.value,
         }),
       );
     },
     [dispatch],
   );
-  const filteredSalons = useMemo(() => {
-    return salonsList.reduce((acc: SalonType[], cur: SalonType) => {
-      return isPriceWithinRange({
-        price: cur.price,
-        priceRange: selectedPriceRange,
-      })
-        ? [...acc, cur]
-        : acc;
-    }, [] as SalonType[]);
-  }, [selectedPriceRange, salonsList]);
+  const filteredSalons = useMemo(
+    () =>
+      salonsList.reduce(
+        (acc: SalonType[], cur: SalonType) =>
+          isPriceWithinRange({
+            price: cur.price,
+            priceRange: selectedPriceRange,
+          })
+            ? [...acc, cur]
+            : acc,
+        [] as SalonType[],
+      ),
+    [selectedPriceRange, salonsList],
+  );
 
   return (
     <SalonsListViewWrapper>

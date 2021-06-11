@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import image from 'assets/image.jpg';
@@ -82,11 +82,11 @@ const Reviews = styled.span`
   padding-bottom: 2px;
 `;
 
-const SalonHeader = ({
+const SalonHeader: React.FC<SalonHeaderProps> = ({
   companyName,
   stars,
   reviews,
-}: SalonHeaderProps): ReactElement => (
+}) => (
   <SalonHeaderWrapper>
     <Buttons>
       <BackButton to="/">
