@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/cloudnine-test/static/css/main.7e01ecc5.chunk.css",
+    "main.js": "/cloudnine-test/static/js/main.13ee8442.chunk.js",
+    "main.js.map": "/cloudnine-test/static/js/main.13ee8442.chunk.js.map",
+    "runtime-main.js": "/cloudnine-test/static/js/runtime-main.02a34bd9.js",
+    "runtime-main.js.map": "/cloudnine-test/static/js/runtime-main.02a34bd9.js.map",
+    "static/js/2.feab0595.chunk.js": "/cloudnine-test/static/js/2.feab0595.chunk.js",
+    "static/js/2.feab0595.chunk.js.map": "/cloudnine-test/static/js/2.feab0595.chunk.js.map",
+    "static/js/3.0671dd0e.chunk.js": "/cloudnine-test/static/js/3.0671dd0e.chunk.js",
+    "static/js/3.0671dd0e.chunk.js.map": "/cloudnine-test/static/js/3.0671dd0e.chunk.js.map",
+    "index.html": "/cloudnine-test/index.html",
+    "static/css/main.7e01ecc5.chunk.css.map": "/cloudnine-test/static/css/main.7e01ecc5.chunk.css.map",
+    "static/js/2.feab0595.chunk.js.LICENSE.txt": "/cloudnine-test/static/js/2.feab0595.chunk.js.LICENSE.txt",
+    "static/media/arrow-down.4ff3b621.svg": "/cloudnine-test/static/media/arrow-down.4ff3b621.svg",
+    "static/media/arrow-left-white.4ca80e4a.svg": "/cloudnine-test/static/media/arrow-left-white.4ca80e4a.svg",
+    "static/media/arrow-left.9b7d0f17.svg": "/cloudnine-test/static/media/arrow-left.9b7d0f17.svg",
+    "static/media/arrow-right.432f180f.svg": "/cloudnine-test/static/media/arrow-right.432f180f.svg",
+    "static/media/clock.196e2703.svg": "/cloudnine-test/static/media/clock.196e2703.svg",
+    "static/media/filter.c35ec176.svg": "/cloudnine-test/static/media/filter.c35ec176.svg",
+    "static/media/globe.00a83730.svg": "/cloudnine-test/static/media/globe.00a83730.svg",
+    "static/media/heart.465bc85e.svg": "/cloudnine-test/static/media/heart.465bc85e.svg",
+    "static/media/image.ad747265.jpg": "/cloudnine-test/static/media/image.ad747265.jpg",
+    "static/media/phone.dd3cb251.svg": "/cloudnine-test/static/media/phone.dd3cb251.svg",
+    "static/media/pin.0765fb0a.svg": "/cloudnine-test/static/media/pin.0765fb0a.svg",
+    "static/media/star-fill.1dedcbdb.svg": "/cloudnine-test/static/media/star-fill.1dedcbdb.svg",
+    "static/media/star-stroke.9199d66f.svg": "/cloudnine-test/static/media/star-stroke.9199d66f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.02a34bd9.js",
+    "static/js/2.feab0595.chunk.js",
+    "static/css/main.7e01ecc5.chunk.css",
+    "static/js/main.13ee8442.chunk.js"
+  ]
+}
