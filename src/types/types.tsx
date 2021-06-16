@@ -3,10 +3,12 @@ export interface SalonType {
   companyName: string;
   price: number;
   reviews: number;
-  address: string;
+  street: string;
   distance: number;
   openTime: string;
   stars: number;
+  city: string;
+  postCode: string;
 }
 
 export interface SelectOptionType {
@@ -44,4 +46,9 @@ export enum StarSizeEnum {
   SMALL = 'S',
   MEDIUM = 'M',
   LARGE = 'L',
+}
+
+export enum SalonInfoTabsHeadersEnum {
+  INFO = 'Info',
+  SCHEMA = 'Schema',
 }

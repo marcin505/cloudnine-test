@@ -10,7 +10,7 @@ interface HeaderProps {
 
 const HeaderWrapper = styled.section`
   align-items: center;
-  border-bottom: 1px solid #b69f58;
+  border-bottom: solid 1px #b69f58;
   display: flex;
   height: 30px;
   justify-content: space-between;

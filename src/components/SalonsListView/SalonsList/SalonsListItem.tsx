@@ -56,7 +56,7 @@ const Reviews = styled.span`
   color: #656565;
 `;
 
-const Address = styled.span`
+const Street = styled.span`
   font-family: 'HelveticaNeue', sans-serif;
   font-size: 15px;
   font-weight: 300;
@@ -110,7 +110,7 @@ const SalonsListItem: React.FC<SalonsListItemProps> = ({
   salon: {
     openTime,
     companyName,
-    address,
+    street,
     reviews,
     stars,
     price,
@@ -127,7 +127,7 @@ const SalonsListItem: React.FC<SalonsListItemProps> = ({
           <Stars {...{ stars, reviews }} />{' '}
           <Reviews>({reviews})</Reviews>
         </Score>
-        <Address>{address}</Address>
+        <Street>{street}</Street>
       </Col2>
       <Col3>
         <Price>{price} kr</Price>

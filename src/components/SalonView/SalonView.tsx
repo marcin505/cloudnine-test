@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useMemo } from 'react';
-import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { StoreContext } from 'store/StoreProvider';
 import { ParamsType, SalonType } from 'types';
+import { SalonInfoTabsHeadersEnum } from 'types';
+import { SalonTextEnum } from 'constants/constants';
+import Tabs, { TabContent } from 'components/common/Tabs';
 import SalonHeader from './SalonHeader/SalonHeader';
 import SalonInfo from './SalonInfo/SalonInfo';
-import { StoreContext } from 'store/StoreProvider';
+import SalonText from './SalonText/SalonText';
 
 const SalonViewWrapper = styled.section`
   background: #fff;
@@ -27,16 +31,27 @@ const SalonView: React.FC = () => {
     if (!currentSalon) history.push('/');
   }, [currentSalon, history]);
 
-  return (
+  return currentSalon ? (
     <SalonViewWrapper>
       <SalonHeader
-        companyName={currentSalon?.companyName || ''}
-        stars={currentSalon?.stars || 0}
-        reviews={currentSalon?.reviews || 0}
+        companyName={currentSalon.companyName}
+        stars={currentSalon.stars}
+        reviews={currentSalon.reviews}
       />
-      <SalonInfo />
+      <Tabs>
+        <TabContent title={SalonInfoTabsHeadersEnum.INFO}>
+          <SalonInfo
+            address={`${currentSalon.street}, ${currentSalon.postCode} ${currentSalon.city}`}
+          />
+        </TabContent>
+        <TabContent title={SalonInfoTabsHeadersEnum.SCHEMA}>
+          <SalonText
+            text={`${SalonTextEnum.SCHEMA} for ${currentSalon.companyName}`}
+          />
+        </TabContent>
+      </Tabs>
     </SalonViewWrapper>
-  );
+  ) : null;
 };
 
 export default SalonView;

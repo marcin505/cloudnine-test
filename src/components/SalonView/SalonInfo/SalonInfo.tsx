@@ -1,10 +1,16 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import globeIcon from 'assets/globe.svg';
 import clockIcon from 'assets/clock.svg';
 import phoneIcon from 'assets/phone.svg';
 import pinIcon from 'assets/pin.svg';
 import arrowDownIcon from 'assets/arrow-down.svg';
+import { SalonTextEnum } from 'constants/constants';
+import SalonText from 'components/SalonView/SalonText/SalonText';
+
+interface SalonInfoType {
+  address: string;
+}
 
 interface IconProps {
   margin?: string;
@@ -37,19 +43,13 @@ const SalonInfoItems = styled.ul`
 
 const SalonInfoItem = styled.li`
   align-items: center;
-  border-bottom: 1px #eeeeee solid;
+  border-bottom: solid 1px #eeeeee;
   color: #202020;
   padding: 15px 0;
   display: flex;
-`;
-
-const Divider = styled.div`
-  height: 80px;
-  background-color: #f9f9f9;
-`;
-
-const InfoContainer = styled.section`
-  padding: 0 15px;
+  &:last-child {
+    margin-bottom: 10px;
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -64,12 +64,6 @@ const Icon = styled.img<IconProps>`
   cursor: ${({ cursor = 'none' }) => cursor};
 `;
 
-const SalonText = styled.div`
-  margin-top: 20px;
-  line-height: 1.47;
-  color: #2b2b2b;
-`;
-
 const StyledLink = styled.a`
   color: #202020;
   text-decoration: none;
@@ -79,55 +73,44 @@ const StyledLink = styled.a`
   }
 `;
 
-const SalonInfo = (): ReactElement => (
+const SalonInfo: React.FC<SalonInfoType> = ({ address }) => (
   <SalonInfoWrapper>
-    <Divider />
-    <InfoContainer>
-      <SalonInfoItems>
-        <SalonInfoItem>
-          <IconWrapper>
-            <Icon src={pinIcon} alt="pin icon" />
-          </IconWrapper>
-          <span>Rådmansgatan 46, 113 57 Stockholm</span>
-        </SalonInfoItem>
-        <SalonInfoItem>
-          <IconWrapper>
-            <Icon src={clockIcon} alt="clock icon" />
-          </IconWrapper>
-          <span>Öppet till 19:00 idag</span>{' '}
-          <Icon
-            src={arrowDownIcon}
-            height={'8px'}
-            margin={'0 0 0 13px'}
-            cursor={'pointer'}
-            alt="expand icon"
-          />
-        </SalonInfoItem>
-        <SalonInfoItem>
-          <IconWrapper>
-            <Icon src={phoneIcon} alt="phone icon" />
-          </IconWrapper>
-          <span>08-522 389 20</span>
-        </SalonInfoItem>
-        <SalonInfoItem>
-          <IconWrapper>
-            <Icon
-              src={globeIcon}
-              margin={'2px 0 0'}
-              alt="phone icon"
-            />
-          </IconWrapper>
-          <StyledLink href="www.salongweb.se">
-            www.salongweb.se
-          </StyledLink>
-        </SalonInfoItem>
-      </SalonInfoItems>
-      <SalonText>
-        Lorem ipsum dolor sit amet, vulputate nunc. Auctor viverra.
-        Ridiculus feugiat nunc porttitor volut pat, acu quis torquent
-        iaculis ultricies massa, duis nun quis que amet.
-      </SalonText>
-    </InfoContainer>
+    <SalonInfoItems>
+      <SalonInfoItem>
+        <IconWrapper>
+          <Icon src={pinIcon} alt="pin icon" />
+        </IconWrapper>
+        <span>{address}</span>
+      </SalonInfoItem>
+      <SalonInfoItem>
+        <IconWrapper>
+          <Icon src={clockIcon} alt="clock icon" />
+        </IconWrapper>
+        <span>Öppet till 19:00 idag</span>{' '}
+        <Icon
+          src={arrowDownIcon}
+          height={'8px'}
+          margin={'0 0 0 13px'}
+          cursor={'pointer'}
+          alt="expand icon"
+        />
+      </SalonInfoItem>
+      <SalonInfoItem>
+        <IconWrapper>
+          <Icon src={phoneIcon} alt="phone icon" />
+        </IconWrapper>
+        <span>08-522 389 20</span>
+      </SalonInfoItem>
+      <SalonInfoItem>
+        <IconWrapper>
+          <Icon src={globeIcon} margin={'2px 0 0'} alt="phone icon" />
+        </IconWrapper>
+        <StyledLink href="https://www.salongweb.se" target="_blank">
+          www.salongweb.se
+        </StyledLink>
+      </SalonInfoItem>
+    </SalonInfoItems>
+    <SalonText text={`${SalonTextEnum.SALON_INFO}`} />
   </SalonInfoWrapper>
 );
 
