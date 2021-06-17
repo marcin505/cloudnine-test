@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/cloudnine-test/static/css/main.6e3790f4.chunk.css",
-    "main.js": "/cloudnine-test/static/js/main.64c350d3.chunk.js",
-    "main.js.map": "/cloudnine-test/static/js/main.64c350d3.chunk.js.map",
+    "main.js": "/cloudnine-test/static/js/main.1609b760.chunk.js",
+    "main.js.map": "/cloudnine-test/static/js/main.1609b760.chunk.js.map",
     "runtime-main.js": "/cloudnine-test/static/js/runtime-main.02a34bd9.js",
     "runtime-main.js.map": "/cloudnine-test/static/js/runtime-main.02a34bd9.js.map",
     "static/js/2.1b68df2a.chunk.js": "/cloudnine-test/static/js/2.1b68df2a.chunk.js",
@@ -30,6 +30,6 @@
     "static/js/runtime-main.02a34bd9.js",
     "static/js/2.1b68df2a.chunk.js",
     "static/css/main.6e3790f4.chunk.css",
-    "static/js/main.64c350d3.chunk.js"
+    "static/js/main.1609b760.chunk.js"
   ]
 }
