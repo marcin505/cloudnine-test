@@ -1,9 +1,11 @@
-import React, { ReactElement, useState, useCallback } from 'react';
+import React, { ReactElement, useCallback } from 'react';
 import styled from 'styled-components';
 import Tab from './Tab/Tab';
 
 interface TabsProps {
   children: ReactElement[];
+  onTabChange: (tabHeading: string) => void;
+  selectedTab: string;
 }
 
 const TabsWrapper = styled.div`
@@ -18,8 +20,19 @@ const StyledTabs = styled.ul`
   margin: 0;
 `;
 
-const Tabs: React.FC<TabsProps> = ({ children }) => {
-  const [selectedTab, setSelectedTab] = useState(0);
+const Tabs: React.FC<TabsProps> = ({
+  children,
+  onTabChange,
+  selectedTab,
+}) => {
+  const selectedChild = useCallback(
+    (children) =>
+      children.find(
+        (child: ReactElement) =>
+          child.props.tabHeading === selectedTab,
+      ),
+    [selectedTab],
+  );
 
   const getIsSelected = useCallback(
     (tabIndex) => selectedTab === tabIndex,
@@ -29,14 +42,14 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
   return (
     <TabsWrapper>
       <StyledTabs>
-        {children.map(({ props: { title } }, index) => (
+        {children.map(({ props: { tabHeading } }, index) => (
           <Tab
-            {...{ setSelectedTab, index, title, getIsSelected }}
+            {...{ onTabChange, index, tabHeading, getIsSelected }}
             key={index}
           />
         ))}
       </StyledTabs>
-      {children[selectedTab]}
+      {selectedChild(children)}
     </TabsWrapper>
   );
 };

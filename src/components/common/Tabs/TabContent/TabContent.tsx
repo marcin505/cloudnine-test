@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface TabType {
-  title: string;
+  tabHeading: string;
 }
 
 const TabContentWrapper = styled.section`

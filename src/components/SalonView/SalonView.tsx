@@ -1,4 +1,9 @@
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useCallback,
+} from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -10,6 +15,7 @@ import Tabs, { TabContent } from 'components/common/Tabs';
 import SalonHeader from './SalonHeader/SalonHeader';
 import SalonInfo from './SalonInfo/SalonInfo';
 import SalonText from './SalonText/SalonText';
+import { updateSelectedTabAction } from 'store/actions';
 
 const SalonViewWrapper = styled.section`
   background: #fff;
@@ -18,7 +24,8 @@ const SalonViewWrapper = styled.section`
 
 const SalonView: React.FC = () => {
   const { salonId }: ParamsType = useParams();
-  const { salonsList } = useContext(SalonsContext);
+  const { salonsList, selectedTab, dispatch } =
+    useContext(SalonsContext);
   const history = useHistory();
   const currentSalon: SalonType = useMemo(
     () =>
@@ -26,9 +33,16 @@ const SalonView: React.FC = () => {
     [salonId, salonsList],
   );
 
+  const tabChangeHandler = useCallback(
+    (selectedTab) => {
+      dispatch(updateSelectedTabAction({ selectedTab }));
+    },
+    [dispatch],
+  );
+
   useEffect(() => {
     if (!currentSalon) history.push('/');
-  }, [currentSalon, history]);
+  }, [currentSalon, history, selectedTab]);
 
   return currentSalon ? (
     <SalonViewWrapper>
@@ -37,11 +51,11 @@ const SalonView: React.FC = () => {
         stars={currentSalon.stars}
         reviews={currentSalon.reviews}
       />
-      <Tabs>
-        <TabContent title={SalonInfoTabsHeadersEnum.INFO}>
+      <Tabs onTabChange={tabChangeHandler} selectedTab={selectedTab}>
+        <TabContent tabHeading={SalonInfoTabsHeadersEnum.INFO}>
           <SalonInfo salon={currentSalon} />
         </TabContent>
-        <TabContent title={SalonInfoTabsHeadersEnum.SCHEMA}>
+        <TabContent tabHeading={SalonInfoTabsHeadersEnum.SCHEMA}>
           <SalonText
             text={`${SalonTextEnum.SCHEMA} for ${currentSalon.companyName}`}
           />

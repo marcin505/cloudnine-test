@@ -32,6 +32,7 @@ const Buttons = styled.section`
   height: 36px;
   justify-content: space-between;
   padding: 23px 13px 0 10px;
+  user-select: none;
 `;
 
 const BackButton = styled(Link)`

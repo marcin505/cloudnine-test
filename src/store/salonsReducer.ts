@@ -13,13 +13,13 @@ import {
 
 export interface StoreType {
   selectedPriceRange: AvailablePriceRangesType;
-  selectedTab: TabsHeadingsEnum.TAB_1 | TabsHeadingsEnum.TAB_2;
+  selectedTab: TabsHeadingsEnum.INFO | TabsHeadingsEnum.SCHEMA;
   salonsList: SalonType[];
 }
 
 export const initialState: StoreType = {
   selectedPriceRange: PriceRangeValuesEnum.ALL,
-  selectedTab: TabsHeadingsEnum.TAB_1,
+  selectedTab: TabsHeadingsEnum.INFO,
   salonsList: SALONS_LIST,
 };
 

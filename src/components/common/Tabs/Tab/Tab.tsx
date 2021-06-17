@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 interface TabProps {
   index: number;
-  title: string;
-  setSelectedTab: (index: number) => void;
-  getIsSelected: (index: number) => boolean;
+  tabHeading: string;
+  onTabChange: (tabHeading: string) => void;
+  getIsSelected: (tabHeading: string) => boolean;
 }
 
 interface TabButtonProps {
@@ -38,16 +38,16 @@ const TabButton = styled.button<TabButtonProps>`
 
 const Tab: React.FC<TabProps> = ({
   index,
-  title,
-  setSelectedTab,
+  tabHeading,
+  onTabChange,
   getIsSelected,
 }) => (
   <TabWrapper key={index}>
     <TabButton
-      onClick={() => setSelectedTab(index)}
-      isSelected={getIsSelected(index)}
+      onClick={() => onTabChange(tabHeading)}
+      isSelected={getIsSelected(tabHeading)}
     >
-      {title}
+      {tabHeading}
     </TabButton>
   </TabWrapper>
 );

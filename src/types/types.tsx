@@ -20,20 +20,20 @@ export interface SelectOptionType {
 }
 
 export enum PriceRangeValuesEnum {
+  ALL = 'all',
   RANGE_1 = '0-250',
   RANGE_2 = '250-500',
   RANGE_3 = '500-750',
-  ALL = 'all',
 }
 
 export enum TabsHeadingsEnum {
-  TAB_1 = 'Info',
-  TAB_2 = 'Schema',
+  INFO = 'Info',
+  SCHEMA = 'Schema',
 }
 
 export type AvailableTabsType =
-  | TabsHeadingsEnum.TAB_1
-  | TabsHeadingsEnum.TAB_2;
+  | TabsHeadingsEnum.INFO
+  | TabsHeadingsEnum.SCHEMA;
 
 export type AvailablePriceRangesType =
   | PriceRangeValuesEnum.RANGE_1
