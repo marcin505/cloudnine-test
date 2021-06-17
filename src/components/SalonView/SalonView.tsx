@@ -20,12 +20,11 @@ const SalonView: React.FC = () => {
   const { salonId }: ParamsType = useParams();
   const { salonsList } = useContext(SalonsContext);
   const history = useHistory();
-  const currentSalon: SalonType = useMemo(() => {
-    const salon = salonsList.find(
-      (salon: SalonType) => salon?.id === salonId,
-    );
-    return salon;
-  }, [salonId, salonsList]);
+  const currentSalon: SalonType = useMemo(
+    () =>
+      salonsList.find((salon: SalonType) => salon?.id === salonId),
+    [salonId, salonsList],
+  );
 
   useEffect(() => {
     if (!currentSalon) history.push('/');
@@ -40,9 +39,7 @@ const SalonView: React.FC = () => {
       />
       <Tabs>
         <TabContent title={SalonInfoTabsHeadersEnum.INFO}>
-          <SalonInfo
-            address={`${currentSalon.street}, ${currentSalon.postCode} ${currentSalon.city}`}
-          />
+          <SalonInfo salon={currentSalon} />
         </TabContent>
         <TabContent title={SalonInfoTabsHeadersEnum.SCHEMA}>
           <SalonText

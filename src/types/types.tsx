@@ -6,9 +6,12 @@ export interface SalonType {
   street: string;
   distance: number;
   openTime: string;
+  closeTime: string;
   stars: number;
   city: string;
   postCode: string;
+  phoneNumber: string;
+  website: string;
 }
 
 export interface SelectOptionType {

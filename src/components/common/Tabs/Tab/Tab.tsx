@@ -23,13 +23,17 @@ const TabButton = styled.button<TabButtonProps>`
   background: #fff;
   border: none;
   border-bottom: ${({ isSelected = false }) =>
-    `solid ${isSelected ? '2px' : '1px'} ${isSelected ? '#b69f58' : `#eeeeee`
+    `solid ${isSelected ? '2px' : '1px'} ${
+      isSelected ? '#b69f58' : `#eeeeee`
     }`};
   cursor: pointer;
   height: 100%;
   outline: none;
-  transition: border-color 0.2s linear;
+  transition: border-color 0.2s ease-out;
   width: 100%;
+  &:hover {
+    color: #6d5f37;
+  }
 `;
 
 const Tab: React.FC<TabProps> = ({

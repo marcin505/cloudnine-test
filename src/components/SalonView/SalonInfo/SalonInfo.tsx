@@ -7,9 +7,10 @@ import pinIcon from 'assets/pin.svg';
 import arrowDownIcon from 'assets/arrow-down.svg';
 import { SalonTextEnum } from 'constants/constants';
 import SalonText from 'components/SalonView/SalonText/SalonText';
+import { SalonType } from 'types';
 
 interface SalonInfoType {
-  address: string;
+  salon: SalonType;
 }
 
 interface IconProps {
@@ -73,20 +74,22 @@ const StyledLink = styled.a`
   }
 `;
 
-const SalonInfo: React.FC<SalonInfoType> = ({ address }) => (
+const SalonInfo: React.FC<SalonInfoType> = ({
+  salon: { street, postCode, city, closeTime, phoneNumber, website },
+}) => (
   <SalonInfoWrapper>
     <SalonInfoItems>
       <SalonInfoItem>
         <IconWrapper>
           <Icon src={pinIcon} alt="pin icon" />
         </IconWrapper>
-        <span>{address}</span>
+        <span>{`${street}, ${postCode} ${city}`}</span>
       </SalonInfoItem>
       <SalonInfoItem>
         <IconWrapper>
           <Icon src={clockIcon} alt="clock icon" />
         </IconWrapper>
-        <span>Öppet till 19:00 idag</span>{' '}
+        <span>Öppet till {closeTime} idag</span>{' '}
         <Icon
           src={arrowDownIcon}
           height={'8px'}
@@ -99,14 +102,14 @@ const SalonInfo: React.FC<SalonInfoType> = ({ address }) => (
         <IconWrapper>
           <Icon src={phoneIcon} alt="phone icon" />
         </IconWrapper>
-        <span>08-522 389 20</span>
+        <span>{phoneNumber}</span>
       </SalonInfoItem>
       <SalonInfoItem>
         <IconWrapper>
           <Icon src={globeIcon} margin={'2px 0 0'} alt="phone icon" />
         </IconWrapper>
-        <StyledLink href="https://www.salongweb.se" target="_blank">
-          www.salongweb.se
+        <StyledLink href={`https://${website}`} target="_blank">
+          {website}
         </StyledLink>
       </SalonInfoItem>
     </SalonInfoItems>
