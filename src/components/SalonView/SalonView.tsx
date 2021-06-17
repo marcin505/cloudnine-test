@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { StoreContext } from 'store/StoreProvider';
+import { SalonsContext } from 'store/salonsProvider';
 import { ParamsType, SalonType } from 'types';
 import { SalonInfoTabsHeadersEnum } from 'types';
 import { SalonTextEnum } from 'constants/constants';
@@ -18,7 +18,7 @@ const SalonViewWrapper = styled.section`
 
 const SalonView: React.FC = () => {
   const { salonId }: ParamsType = useParams();
-  const { salonsList } = useContext(StoreContext);
+  const { salonsList } = useContext(SalonsContext);
   const history = useHistory();
   const currentSalon: SalonType = useMemo(() => {
     const salon = salonsList.find(

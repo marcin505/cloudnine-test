@@ -23,7 +23,7 @@ export const initialState: StoreType = {
   salonsList: SALONS_LIST,
 };
 
-const reducer = (
+const salonsReducer = (
   state: StoreType = initialState,
   action: ActionsType,
 ): StoreType => {
@@ -40,4 +40,4 @@ const reducer = (
   }
 };
 
-export default reducer;
+export default salonsReducer;

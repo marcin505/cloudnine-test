@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from 'components/SalonsListView/Header/Header';
 import PriceFilter from 'components/SalonsListView/PriceFilter/PriceFilter';
 import SalonsList from 'components/SalonsListView/SalonsList/SalonsList';
-import { StoreContext } from 'store/StoreProvider';
+import { SalonsContext } from 'store/salonsProvider';
 import { updatePriceRangeAction } from 'store/actions';
 import { SalonType } from 'types';
 import { isPriceWithinRange } from 'utils/utils';
@@ -15,7 +15,8 @@ const SalonsListViewWrapper = styled.section`
 
 const SalonsListView: React.FC = () => {
   const { salonsList, selectedPriceRange, dispatch } =
-    useContext(StoreContext);
+    useContext(SalonsContext);
+
   const priceSelectionHandler = useCallback(
     (selectedOption) => {
       dispatch(
@@ -26,6 +27,7 @@ const SalonsListView: React.FC = () => {
     },
     [dispatch],
   );
+
   const filteredSalons = useMemo(
     () =>
       salonsList.reduce(

@@ -5,11 +5,11 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import SalonsListView from 'components/SalonsListView';
 import SalonView from 'components/SalonView';
 import reportWebVitals from './reportWebVitals';
-import StoreProvider from 'store/StoreProvider';
+import SalonsProvider from 'store/salonsProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <StoreProvider>
+    <SalonsProvider>
       <HashRouter>
         <Switch>
           <Route exact path="/">
@@ -20,7 +20,7 @@ ReactDOM.render(
           </Route>
         </Switch>
       </HashRouter>
-    </StoreProvider>
+    </SalonsProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

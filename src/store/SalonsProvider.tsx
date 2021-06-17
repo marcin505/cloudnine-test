@@ -1,17 +1,17 @@
 import React, { ReactElement, useReducer, Context } from 'react';
-import reducer, { initialState } from './reducer';
+import salonsReducer, { initialState } from './salonsReducer';
 
-const StoreContext: Context<any> = React.createContext(initialState);
+const SalonsContext: Context<any> = React.createContext(initialState);
 
-const StoreProvider = ({
+const SalonsProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }): ReactElement => {
   const [{ salonsList, selectedPriceRange, selectedTab }, dispatch] =
-    useReducer(reducer, initialState);
+    useReducer(salonsReducer, initialState);
   return (
-    <StoreContext.Provider
+    <SalonsContext.Provider
       value={{
         salonsList,
         selectedPriceRange,
@@ -20,9 +20,9 @@ const StoreProvider = ({
       }}
     >
       {children}
-    </StoreContext.Provider>
+    </SalonsContext.Provider>
   );
 };
 
-export { StoreContext };
-export default StoreProvider;
+export { SalonsContext };
+export default SalonsProvider;

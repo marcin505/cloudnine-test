@@ -119,7 +119,7 @@ const SalonsListItem: React.FC<SalonsListItemProps> = ({
   },
 }) => {
   return (
-    <StyledListItem>
+    <StyledListItem className="salons-list-item">
       <Col1>{openTime}</Col1>
       <Col2>
         <CompanyName>{companyName}</CompanyName>

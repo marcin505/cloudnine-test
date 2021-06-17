@@ -20,16 +20,16 @@ const TabWrapper = styled.li`
 `;
 
 const TabButton = styled.button<TabButtonProps>`
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
   background: #fff;
   border: none;
   border-bottom: ${({ isSelected = false }) =>
-    `solid ${isSelected ? '2px' : '1px'} ${
-      isSelected ? '#b69f58' : `#eeeeee`
+    `solid ${isSelected ? '2px' : '1px'} ${isSelected ? '#b69f58' : `#eeeeee`
     }`};
+  cursor: pointer;
+  height: 100%;
+  outline: none;
   transition: border-color 0.2s linear;
+  width: 100%;
 `;
 
 const Tab: React.FC<TabProps> = ({

@@ -72,20 +72,22 @@ const PriceFilter = ({
   }, [selectedPriceRange]);
 
   return (
-    <StyledSelect
-      options={PRICE_OPTIONS}
-      onChange={priceSelectionHandler}
-      value={selectedPriceOption}
-      components={{
-        IndicatorSeparator: () => null,
-      }}
-      theme={(theme: any) => ({
-        ...theme,
-        borderRadius: 0,
-      })}
-      isSearchable={false}
-      styles={styles}
-    />
+    <form>
+      <StyledSelect
+        options={PRICE_OPTIONS}
+        onChange={priceSelectionHandler}
+        value={selectedPriceOption}
+        components={{
+          IndicatorSeparator: () => null,
+        }}
+        theme={(theme: any) => ({
+          ...theme,
+          borderRadius: 0,
+        })}
+        isSearchable={false}
+        styles={styles}
+      />
+    </form>
   );
 };
 
