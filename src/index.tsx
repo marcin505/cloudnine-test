@@ -5,7 +5,7 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import SalonsListView from 'components/SalonsListView';
 import SalonView from 'components/SalonView';
 import reportWebVitals from './reportWebVitals';
-import SalonsProvider from 'store/salonsProvider';
+import SalonsProvider from 'store/SalonsProvider';
 
 ReactDOM.render(
   <React.StrictMode>

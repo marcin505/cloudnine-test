@@ -4,7 +4,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme, { mount } from 'enzyme';
 import { HashRouter } from 'react-router-dom';
 import SalonsListView from './SalonListView';
-import { SalonsContext } from 'store/salonsProvider';
+import { SalonsContext } from 'store/SalonsProvider';
 import { SALONS_LIST } from 'constants/constants';
 import { initialState } from 'store/salonsReducer';
 

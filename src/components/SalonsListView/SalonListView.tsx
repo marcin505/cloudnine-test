@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from 'components/SalonsListView/Header/Header';
 import PriceFilter from 'components/SalonsListView/PriceFilter/PriceFilter';
 import SalonsList from 'components/SalonsListView/SalonsList/SalonsList';
-import { SalonsContext } from 'store/salonsProvider';
+import { SalonsContext } from 'store/SalonsProvider';
 import { updatePriceRangeAction } from 'store/actions';
 import { SalonType } from 'types';
 import { isPriceWithinRange } from 'utils/utils';

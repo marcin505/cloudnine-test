@@ -7,7 +7,7 @@ import React, {
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { SalonsContext } from 'store/salonsProvider';
+import { SalonsContext } from 'store/SalonsProvider';
 import { ParamsType, SalonType } from 'types';
 import { SalonInfoTabsHeadersEnum } from 'types';
 import { SalonTextEnum } from 'constants/constants';
