@@ -1,4 +1,4 @@
-# Cloudnine Demo App
+# Cloudnine React Demo App
 
 This project was bootstrapped with Create React App.
 
