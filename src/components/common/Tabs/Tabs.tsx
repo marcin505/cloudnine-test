@@ -6,6 +6,9 @@ interface TabsProps {
   children: ReactElement[];
   onTabChange: (tabHeading: string) => void;
   selectedTab: string;
+  namesArr: { name: string }[];
+  onNameClick: (event: React.MouseEvent<HTMLSpanElement>) => void;
+  onTextChange: (event: React.FormEvent<HTMLInputElement>) => void;
 }
 
 const TabsWrapper = styled.div`
@@ -24,6 +27,9 @@ const Tabs: React.FC<TabsProps> = ({
   children,
   onTabChange,
   selectedTab,
+  namesArr,
+  onNameClick,
+  onTextChange,
 }) => {
   const selectedChild = useCallback(
     (children) =>
@@ -39,6 +45,12 @@ const Tabs: React.FC<TabsProps> = ({
     [selectedTab],
   );
 
+  const inputEl = React.useRef<HTMLInputElement>(null);
+  const onButtonClick = () => {
+    // `current` points to the mounted text input element
+    inputEl.current?.focus();
+  };
+
   return (
     <TabsWrapper>
       <StyledTabs>
@@ -50,6 +62,13 @@ const Tabs: React.FC<TabsProps> = ({
         ))}
       </StyledTabs>
       {selectedChild(children)}
+      {namesArr.map(({ name }, index) => (
+        <span key={index} onClick={(event) => onNameClick(event)}>
+          {name}
+        </span>
+      ))}
+      <input type="text" ref={inputEl} onChange={onTextChange} />
+      <button onClick={onButtonClick}>Focus the input</button>
     </TabsWrapper>
   );
 };

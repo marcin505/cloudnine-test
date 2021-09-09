@@ -17,6 +17,9 @@ import SalonInfo from './SalonInfo/SalonInfo';
 import SalonText from './SalonText/SalonText';
 import { updateSelectedTabAction } from 'store/actions';
 
+const namesArr = [{ name: 'Paweł' }, { name: 'Jola' }];
+export const baseURL = 'https://hn.algolia.com/api/v1/search';
+
 const SalonViewWrapper = styled.section`
   background: #fff;
   height: 667px;
@@ -44,6 +47,33 @@ const SalonView: React.FC = () => {
     if (!currentSalon) history.push('/');
   }, [currentSalon, history, selectedTab]);
 
+  const onNameClick = useCallback(
+    (event: React.MouseEvent<HTMLSpanElement>) => {
+      console.log(event.target);
+    },
+    [],
+  );
+
+  const onTextChange = useCallback(
+    ({
+      currentTarget: { value: query },
+    }: React.FormEvent<HTMLInputElement>): void => {
+      // console.log(query);
+      // const query = value;
+      // event.preventDefault();
+      // fetch(`${baseURL}?query=${query}`)
+      // .then((response) => response.json())
+      // .then((val) => console.log(val));
+      (async () => {
+        const result = await fetch(`${baseURL}?query=${query}`).then(
+          (response) => response.json(),
+        );
+        console.log(result);
+      })();
+    },
+    [],
+  );
+
   return currentSalon ? (
     <SalonViewWrapper>
       <SalonHeader
@@ -51,7 +81,11 @@ const SalonView: React.FC = () => {
         stars={currentSalon.stars}
         reviews={currentSalon.reviews}
       />
-      <Tabs onTabChange={tabChangeHandler} selectedTab={selectedTab}>
+      <Tabs
+        onTabChange={tabChangeHandler}
+        selectedTab={selectedTab}
+        {...{ namesArr, onNameClick, onTextChange }}
+      >
         <TabContent tabHeading={SalonInfoTabsHeadersEnum.INFO}>
           <SalonInfo salon={currentSalon} />
         </TabContent>
