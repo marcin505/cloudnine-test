@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface TabProps {
-  index: number;
   tabHeading: string;
   onTabChange: (tabHeading: string) => void;
   getIsSelected: (tabHeading: string) => boolean;
@@ -37,12 +36,11 @@ const TabButton = styled.button<TabButtonProps>`
 `;
 
 const Tab: React.FC<TabProps> = ({
-  index,
   tabHeading,
   onTabChange,
   getIsSelected,
 }) => (
-  <TabWrapper key={index}>
+  <TabWrapper>
     <TabButton
       onClick={() => onTabChange(tabHeading)}
       isSelected={getIsSelected(tabHeading)}

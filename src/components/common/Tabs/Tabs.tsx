@@ -44,7 +44,7 @@ const Tabs: React.FC<TabsProps> = ({
       <StyledTabs>
         {children.map(({ props: { tabHeading } }, index) => (
           <Tab
-            {...{ onTabChange, index, tabHeading, getIsSelected }}
+            {...{ onTabChange, tabHeading, getIsSelected }}
             key={index}
           />
         ))}
